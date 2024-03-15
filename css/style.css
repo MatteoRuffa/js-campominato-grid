@@ -1,3 +1,4 @@
+
 body {
     font-family: "Roboto", sans-serif;
     font-weight: 300;
@@ -5,8 +6,20 @@ body {
 }
 
 .big-box {
-    width: 1000px;
-    height: 1000px;
+    width: 800px;
+    height: 800px;
     border: 1px solid black;
     margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.box {
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+    border: 1px solid black;
 }

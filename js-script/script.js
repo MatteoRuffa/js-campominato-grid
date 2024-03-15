@@ -20,7 +20,20 @@ const elButton = document.querySelector('.btn');
 
 elButton.addEventListener('click', function(){
     const elBigSquare = document.createElement("div");
-    elBigSquare.classList = 'big-box';
+    elBigSquare.classList.add('big-box');
     console.log(elBigSquare);
     document.querySelector('.container').appendChild(elBigSquare);
+
+    // genero 100 quadrati piu piccoli dentro il bigsquare
+        // genro una funzione per creare i quadrati
+    function generateSquare() {
+        const square = document.createElement('div');
+        square.classList.add('box');
+        return square;
+    }
+        // uso la funzione dentro un ciclo per definire il numero di quadrati che voglio
+    for ( let i = 0; i < 100; i++) {
+        elBigSquare.appendChild(generateSquare());
+    }
+
 });
