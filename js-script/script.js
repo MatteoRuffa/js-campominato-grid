@@ -21,7 +21,7 @@ const elButton = document.querySelector('.btn');
 elButton.addEventListener('click', function(){
     const elBigSquare = document.createElement("div");
     elBigSquare.classList.add('big-box');
-    console.log(elBigSquare);
+    // console.log(elBigSquare);
     document.querySelector('.container').appendChild(elBigSquare);
 
     // genero 100 quadrati piu piccoli dentro il bigsquare
@@ -37,9 +37,12 @@ elButton.addEventListener('click', function(){
         const square = generateSquare(i + 1)
         elBigSquare.appendChild(square);
 
+        // Quando l'utente clicca su ogni cella....
         square.addEventListener('click', function(){
             // la cella cliccata si colora di azzurro
             square.classList.toggle('bg-info-subtle');
+            // ed emetto un messaggio in console con il numero della cella cliccata.
+            console.log(`Hai cliccato la cella numero: ${i + 1}`);
         });
     }
 });
