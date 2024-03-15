@@ -4,3 +4,9 @@ body {
     font-style: normal;
 }
 
+.big-box {
+    width: 1000px;
+    height: 1000px;
+    border: 1px solid black;
+    margin: 0 auto;
+}
