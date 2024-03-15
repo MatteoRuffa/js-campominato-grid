@@ -23,7 +23,7 @@ let newGame = false;
 
 elButton.addEventListener('click', function(){
 
-    // aggiungo un comando che se il bigbox esiste lo toglie e rimette
+    // aggiungo un comando che se il bigbox esiste lo toglie e ricrea
     if (newGame) {
         const elBigSquare = document.querySelector('.big-box');
         if (elBigSquare) {
