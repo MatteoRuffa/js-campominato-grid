@@ -18,31 +18,44 @@ con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 
 
 const elButton = document.querySelector('.btn');
 
+// creo un (o una) flag per 'resettare' il layout di gioco
+let newGame = false;
+
 elButton.addEventListener('click', function(){
-    const elBigSquare = document.createElement("div");
-    elBigSquare.classList.add('big-box');
-    // console.log(elBigSquare);
-    document.querySelector('.container').appendChild(elBigSquare);
 
-    // genero 100 quadrati piu piccoli dentro il bigsquare
-        // genro una funzione per creare i quadrati
-    function generateSquare(content) {
-        const newSquare = document.createElement('div');
-        newSquare.classList.add('box');
-        newSquare.innerHTML = '<span>' + content + '</span>';
-        return newSquare;
-    }
-        // uso la funzione dentro un ciclo per definire il numero di quadrati che voglio
-    for ( let i = 0; i < 100; i++) {
-        const square = generateSquare(i + 1)
-        elBigSquare.appendChild(square);
+    // aggiungo un comando che se il bigbox esiste lo toglie e rimette
+    if (newGame) {
+        const elBigSquare = document.querySelector('.big-box');
+        if (elBigSquare) {
+            elBigSquare.remove();
+        }
+        newGame = false;
+    } else {
+        const elBigSquare = document.createElement("div");
+        elBigSquare.classList.add('big-box');
+        document.querySelector('.container').appendChild(elBigSquare);
+    
+        // genero 100 quadrati piu piccoli dentro il bigsquare
+            // genro una funzione per creare i quadrati
+        function generateSquare(content) {
+            const newSquare = document.createElement('div');
+            newSquare.classList.add('box');
+            newSquare.innerHTML = '<span>' + content + '</span>';
+            return newSquare;
+        }
+            // uso la funzione dentro un ciclo per definire il numero di quadrati che voglio
+        for ( let i = 0; i < 100; i++) {
+            const square = generateSquare(i + 1)
+            elBigSquare.appendChild(square);
 
-        // Quando l'utente clicca su ogni cella....
-        square.addEventListener('click', function(){
-            // la cella cliccata si colora di azzurro
-            square.classList.toggle('bg-info-subtle');
-            // ed emetto un messaggio in console con il numero della cella cliccata.
-            console.log(`Hai cliccato la cella numero: ${i + 1}`);
-        });
+            // Quando l'utente clicca su ogni cella....
+            square.addEventListener('click', function(){
+                // la cella cliccata si colora di azzurro
+                square.classList.toggle('bg-info-subtle');
+                // ed emetto un messaggio in console con il numero della cella cliccata.
+                console.log(`Hai cliccato la cella numero: ${i + 1}`);
+            });
+        }
+        newGame = true;
     }
 });
