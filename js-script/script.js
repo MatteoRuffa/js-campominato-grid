@@ -27,13 +27,19 @@ elButton.addEventListener('click', function(){
     // genero 100 quadrati piu piccoli dentro il bigsquare
         // genro una funzione per creare i quadrati
     function generateSquare(content) {
-        const square = document.createElement('div');
-        square.classList.add('box');
-        square.innerHTML = '<span>' + content + '</span>';
-        return square;
+        const newSquare = document.createElement('div');
+        newSquare.classList.add('box');
+        newSquare.innerHTML = '<span>' + content + '</span>';
+        return newSquare;
     }
         // uso la funzione dentro un ciclo per definire il numero di quadrati che voglio
     for ( let i = 0; i < 100; i++) {
-        elBigSquare.appendChild(generateSquare(i + 1));
+        const square = generateSquare(i + 1)
+        elBigSquare.appendChild(square);
+
+        square.addEventListener('click', function(){
+            // la cella cliccata si colora di azzurro
+            square.classList.toggle('bg-info-subtle');
+        });
     }
 });
