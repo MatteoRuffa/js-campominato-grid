@@ -26,14 +26,14 @@ elButton.addEventListener('click', function(){
 
     // genero 100 quadrati piu piccoli dentro il bigsquare
         // genro una funzione per creare i quadrati
-    function generateSquare() {
+    function generateSquare(content) {
         const square = document.createElement('div');
         square.classList.add('box');
+        square.innerHTML = '<span>' + content + '</span>';
         return square;
     }
         // uso la funzione dentro un ciclo per definire il numero di quadrati che voglio
     for ( let i = 0; i < 100; i++) {
-        elBigSquare.appendChild(generateSquare());
+        elBigSquare.appendChild(generateSquare(i + 1));
     }
-
 });
