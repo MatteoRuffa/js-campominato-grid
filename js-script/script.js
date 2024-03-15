@@ -51,7 +51,7 @@ elButton.addEventListener('click', function(){
             // Quando l'utente clicca su ogni cella....
             square.addEventListener('click', function(){
                 // la cella cliccata si colora di azzurro
-                square.classList.toggle('bg-info-subtle');
+                square.classList.toggle('bg-success');
                 // ed emetto un messaggio in console con il numero della cella cliccata.
                 console.log(`Hai cliccato la cella numero: ${i + 1}`);
             });
